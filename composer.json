@@ -1,0 +1,22 @@
+{
+    "name": "outragelib/fs-temp",
+    "description": "Temporary filesystem for PHP",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Weston",
+            "email": "westie@typefish.co.uk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "OUTRAGElib\\": "./lib"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.4@dev"
+    }
+}
