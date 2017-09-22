@@ -129,6 +129,15 @@ class TemporaryFilesystemStreamWrapper implements FileInterface, StreamInterface
 	
 	
 	/**
+	 *	Streams: Cast? the stream
+	 */
+	public function stream_cast($cast_as)
+	{
+		return $this->resource;
+	}
+	
+	
+	/**
 	 *	Files: rename from one file to another
 	 */
 	public function rename($path_from, $path_to)

@@ -64,4 +64,10 @@ interface StreamInterface
 	 *	Streams: Close stream
 	 */
 	public function stream_close();
+	
+	
+	/**
+	 *	Streams: Cast? the stream
+	 */
+	public function stream_cast($cast_as);
 }
