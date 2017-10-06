@@ -3,11 +3,13 @@
 
 namespace OUTRAGElib\Filesystem;
 
+use \Exception;
 use \OUTRAGElib\Filesystem\StreamWrapper\FileInterface;
+use \OUTRAGElib\Filesystem\StreamWrapper\MimeTypeInterface;
 use \OUTRAGElib\Filesystem\StreamWrapper\StreamInterface;
 
 
-class TemporaryFilesystemStreamWrapper implements FileInterface, StreamInterface
+class TemporaryFilesystemStreamWrapper implements FileInterface, MimeTypeInterface, StreamInterface
 {
 	/**
 	 *	Context options
@@ -19,6 +21,12 @@ class TemporaryFilesystemStreamWrapper implements FileInterface, StreamInterface
 	 *	What path is currently being accessed?
 	 */
 	protected $path;
+	
+	
+	/**
+	 *	Does this stream have a MIME type associated with it?
+	 */
+	protected $mime_type = null;
 	
 	
 	/**
@@ -196,5 +204,26 @@ class TemporaryFilesystemStreamWrapper implements FileInterface, StreamInterface
 			return $metadata["uri"];
 		
 		return null;
+	}
+	
+	
+	/**
+	 *	MIME types: Set the MIME type
+	 */
+	public function setMimeType($mime_type)
+	{
+		if(!is_resource($this->resource))
+			throw new Exception("A stream must be opened in order to set the MIME type");
+		
+		$this->mime_type = $mime_type;
+	}
+	
+	
+	/**
+	 *	MIME types: Retrieve the MIME type
+	 */
+	public function getMimeType()
+	{
+		return $this->mime_type;
 	}
 }
