@@ -13,7 +13,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "OUTRAGElib\\": "./lib"
+            "OUTRAGElib\\Filesystem\\": "./lib"
         }
     },
     "require-dev": {
